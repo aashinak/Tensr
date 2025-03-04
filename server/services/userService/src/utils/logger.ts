@@ -1,6 +1,7 @@
 import winston from "winston";
 import chalk from "chalk";
 import DailyRotateFile from "winston-daily-rotate-file";
+import { EnvConfig } from "../infrastructure/config/env";
 
 // Define log format with colors for level and message
 const logFormat = winston.format.printf(({ level, message, timestamp }) => {
@@ -29,7 +30,7 @@ const logger = winston.createLogger({
     new winston.transports.Console(),
     new DailyRotateFile({
       dirname: "logs",
-      filename: "app-%DATE%.log",
+      filename: `${EnvConfig.SERVICE}-%DATE%.log`,
       datePattern: "YYYY-MM-DD",
       zippedArchive: false,
       maxSize: "10m",
