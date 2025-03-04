@@ -1,4 +1,3 @@
-import "dotenv/config";
 import express from "express";
 import helmet from "helmet";
 import cors from "cors";
@@ -6,6 +5,7 @@ import compression from "compression";
 import morgan from "morgan";
 import { morganStream } from "./utils/logger";
 import { Request, Response } from "express";
+import { EnvConfig } from "./infrastructure/config/env";
 
 // import routes from "./routes";
 
@@ -30,7 +30,7 @@ app.use(
 // Enable CORS with restricted origins
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN || "http://localhost:3000",
+    origin: EnvConfig.CORS_ORIGIN,
     credentials: true,
   })
 );
