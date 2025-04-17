@@ -12,6 +12,7 @@ async function startServer() {
 
     // Start server
     const server = app.listen(PORT, () => {
+      logger.info(`Service name: ${EnvConfig.SERVICE}`);
       logger.info(`Environment: ${EnvConfig.NODE_ENV}`);
       logger.info(`🚀 Server is running on port ${PORT}`);
     });
@@ -32,3 +33,4 @@ async function startServer() {
 }
 
 startServer();
+

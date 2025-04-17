@@ -4,6 +4,7 @@ import { EnvConfig } from "./env";
 
 async function connectMongoDb(): Promise<void> {
   try {
+    logger.info("Connecting to MongoDB...");
     const connectedInstance = await mongoose.connect(
       EnvConfig.MONGODB_URL as string
     );
