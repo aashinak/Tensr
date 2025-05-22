@@ -8,10 +8,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-poppins);
+  --font-poppins: var(--font-poppins);
   --font-protest-strike: var(--font-protest-strike);
-
-  
 }
 
 

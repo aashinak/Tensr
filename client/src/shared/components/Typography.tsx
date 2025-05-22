@@ -36,7 +36,7 @@ export default function Typography({
       baseClass = `font-poppins  text-2xl font-medium`;
       break;
     case "tensr":
-      baseClass = `font-protest-strike  text-3xl text-[#a2a2a2] `;
+      baseClass = `font-protest-strike tracking-wide  text-2xl md:text-4xl text-[#a2a2a2] `;
       break;
     default:
       baseClass = `font-poppins  text-base`;
