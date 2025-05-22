@@ -2,7 +2,7 @@ import Container from "@/shared/components/Container";
 import Typography from "@/shared/components/Typography";
 import React from "react";
 import SignupForm from "../components/SignupForm";
-import SocialButtons from "../components/SocialButtons";
+import SocialButtons from "../../shared/components/SocialButtons";
 import Link from "next/link";
 
 function SignupPage() {
@@ -22,7 +22,7 @@ function SignupPage() {
         OR
       </Typography>
       {/* Social Media Signup Buttons */}
-      <SocialButtons />
+      <SocialButtons method="signup" />
       {/* Link to Sign In */}
       <Link href={"/signin"}>
         <Typography className="text-center text-xs md:text-sm text-[#9a9a9a] mt-4">

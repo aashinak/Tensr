@@ -1,4 +1,4 @@
-import SignupPage from "@/modules/auth/ui/signup/pages/SignupPage";
+import SignupPage from "@/modules/auth/signup/pages/SignupPage";
 
 const page = () => {
   return <SignupPage />;
