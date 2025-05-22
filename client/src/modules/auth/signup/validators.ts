@@ -5,6 +5,7 @@ export const signupSchema = z
     username: z
       .string()
       .trim()
+      .toLowerCase()
       .min(3, "Username must be at least 3 characters")
       .regex(
         /^[a-zA-Z0-9_]+$/,

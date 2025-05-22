@@ -71,7 +71,7 @@ function SignupForm() {
       {/* Submit Button */}
       <Button
         className="col-span-2 font-semibold bg-[#d3d3d3] text-black"
-        text="Submit"
+        text="Sign Up"
         type="submit"
       />
     </form>
