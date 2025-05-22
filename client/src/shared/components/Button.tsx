@@ -74,7 +74,7 @@ function Button({
       ref={buttonRef}
       type={type}
       onClick={onClickHandler}
-      className={`${className} font-poppins flex justify-center items-center gap-4 hover:shadow-md cursor-pointer rounded-[19px] p-5`}
+      className={`${className} font-poppins flex justify-center items-center gap-4  cursor-pointer rounded-[19px] p-5`}
       style={style}
     >
       {iconPosition === "left" && iconSrc && (
