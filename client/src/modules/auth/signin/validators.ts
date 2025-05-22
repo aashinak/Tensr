@@ -7,7 +7,8 @@ export const signInSchema = z.object({
   identifier: z
     .string()
     .trim()
-    .min(3, "Identifier must be at least 3 characters")
+    .toLowerCase()
+    .min(3, "Must be at least 3 characters")
     .refine((val) => usernameRegex.test(val) || emailRegex.test(val), {
       message: "Enter a valid username or email",
     }),
