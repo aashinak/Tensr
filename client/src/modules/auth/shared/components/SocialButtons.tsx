@@ -1,3 +1,5 @@
+// Description: Other signup/signin methods
+// Currently, only Google and GitHub are implemented.
 "use client";
 import Button from "@/shared/components/Button";
 import React from "react";
