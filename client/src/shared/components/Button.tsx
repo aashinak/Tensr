@@ -20,6 +20,7 @@ type ButtonProps = {
   iconSrc?: string;
 
   // Button props
+  disabled?: boolean;
   className?: string;
   style?: React.CSSProperties;
   text: string;
@@ -28,6 +29,7 @@ type ButtonProps = {
 };
 
 function Button({
+  disabled = false,
   iconPosition = "left",
   iconSize = 20,
   iconColor,
@@ -52,7 +54,7 @@ function Button({
     const handleClick = () => {
       gsap.fromTo(
         el,
-        { scale: 0.90, opacity: 0.8 },
+        { scale: 0.9, opacity: 0.8 },
         {
           scale: 1,
           opacity: 1,
@@ -68,13 +70,14 @@ function Button({
       el.removeEventListener("click", handleClick); // cleanup
     };
   }, []);
-  
+
   return (
     <button
+      disabled={disabled}
       ref={buttonRef}
       type={type}
       onClick={onClickHandler}
-      className={`${className} font-poppins flex justify-center items-center gap-4  cursor-pointer rounded-[19px] p-5`}
+      className={`${className} disabled:cursor-not-allowed disabled:bg-[#505050] disabled:text-white/50 font-poppins flex justify-center items-center gap-4 cursor-pointer rounded-[19px] p-5`}
       style={style}
     >
       {iconPosition === "left" && iconSrc && (
