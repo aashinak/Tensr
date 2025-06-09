@@ -8,6 +8,7 @@ import {
 import Typography from "./Typography";
 
 type InputBoxProps<T extends FieldValues> = {
+  maxLength?: number;
   className?: string;
   style?: React.CSSProperties;
   placeholder?: string;
@@ -16,13 +17,14 @@ type InputBoxProps<T extends FieldValues> = {
   name: Path<T>;
   label?: string;
   type?: string;
-  register: UseFormRegister<T>;
-  errors: FieldErrors<T>;
+  register?: UseFormRegister<T>;
+  errors?: FieldErrors<T>;
   subtext?: string;
   onChangeCallback?: (value: string) => void;
 };
 
 function InputBox<T extends FieldValues>({
+  maxLength,
   subtext = "",
   className = "",
   style = {},
@@ -50,22 +52,23 @@ function InputBox<T extends FieldValues>({
         </label>
       )}
       <input
+        {...(maxLength !== undefined ? { maxLength } : {})}
         id={String(name)}
         type={type}
         placeholder={placeholder}
         disabled={disabled}
-        {...register(name, { required })}
+        {...(register ? register(name, { required }) : {})}
         onChange={(e) => {
-          register(name).onChange(e);
+          register?.(name).onChange(e);
           onChangeCallback?.(e.target.value);
         }}
         className={`font-poppins w-full px-3 py-5 md:p-5 rounded-[19px] bg-[#323232] focus:outline-none focus:ring-1 ${
-          errors[name]
+          errors && errors[name]
             ? "border-red-500 focus:ring-red-500"
             : "border-gray-300 focus:ring-blue-500"
         }`}
       />
-      {errors[name] && (
+      {errors && errors[name] && (
         <Typography className="text-xs md:text-sm text-red-500">
           {/* {"\u00A0"} */}
           {errors[name]?.message?.toString() || " This field is required"}
@@ -74,7 +77,8 @@ function InputBox<T extends FieldValues>({
       {subtext && (
         <Typography className="text-xs md:text-sm text-green-300">
           {"\u00A0"}{" "}
-          {errors[name]?.message?.toString() || " Username Available"}
+          {(errors && errors[name]?.message?.toString()) ||
+            " Username Available"}
         </Typography>
       )}
     </div>
