@@ -1,3 +1,6 @@
+// Description: Signup page component for user registration
+// This page includes a signup form, social media signup buttons, and a link to the sign-in page.
+
 import Container from "@/shared/components/Container";
 import Typography from "@/shared/components/Typography";
 import React from "react";
@@ -7,7 +10,7 @@ import Link from "next/link";
 
 function SignupPage() {
   return (
-    <Container className="lg:w-2/5   sm:w-3/4 w-full">
+    <Container className="lg:w-2/5 relative  sm:w-3/4 w-full">
       <Typography variant="heading" className="text-center text-2xl  text-[#d1d1d1]">
         Welcome geek !!
       </Typography>
