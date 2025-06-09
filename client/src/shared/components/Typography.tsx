@@ -5,6 +5,7 @@ import type { JSX } from "react";
 type Variant = "heading" | "subheading" | "body" | "tensr";
 
 type TypographyProps = {
+  onClick?: () => void;
   variant?: "heading" | "subheading" | "body" | "tensr";
   children: React.ReactNode;
   className?: string;
@@ -20,6 +21,7 @@ const variantTagMap: Record<Variant, keyof JSX.IntrinsicElements> = {
 };
 
 export default function Typography({
+  onClick,
   className = "",
   style = {},
   variant = "body",
@@ -43,7 +45,7 @@ export default function Typography({
   }
 
   return (
-    <Component className={`${baseClass} ${className}`} style={style}>
+    <Component onClick={onClick}  className={`${baseClass} ${className}`} style={style}>
       {children}
     </Component>
   );
