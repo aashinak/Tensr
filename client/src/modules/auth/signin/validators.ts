@@ -14,3 +14,11 @@ export const signInSchema = z.object({
     }),
   password: z.string().trim().min(8, "Password must be at least 8 characters"),
 });
+
+export const forgotEmailSchema = z.object({
+  forgotEmail: z
+    .string()
+    .trim()
+    .toLowerCase()
+    .email("Enter a valid email address"),
+});
