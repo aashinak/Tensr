@@ -4,8 +4,7 @@ import { z } from "zod";
 // It checks for username, fullname, email, password and confirmPassword fields
 // Each field has specific validation rules, such as minimum length and format
 // The password and confirmPassword fields must match
-const passwordRegex =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?#&^])[A-Za-z\d@$!%*?#&^]{8,}$/;
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/;
 
 export const signupSchema = z
   .object({

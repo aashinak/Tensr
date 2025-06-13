@@ -1,11 +1,10 @@
 import { z } from "zod";
 
-// Password must be at least 8 characters long, 
-// contain at least one uppercase letter, 
+// Password must be at least 8 characters long,
+// contain at least one uppercase letter,
 // one lowercase letter, one number
 // and one special character
-const passwordRegex =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?#&^])[A-Za-z\d@$!%*?#&^]{8,}$/;
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/;
 
 export const resetPasswordSchema = z
   .object({
@@ -25,7 +24,6 @@ export const resetPasswordSchema = z
     message: "Passwords don't match",
     path: ["confirmPassword"],
   });
-
 
 // JWT format: header.payload.signature
 const jwtRegex = /^[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+$/;
