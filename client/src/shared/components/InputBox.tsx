@@ -70,7 +70,7 @@ function InputBox<T extends FieldValues>({
       />
       {errors && errors[name] && (
         <Typography className="text-xs md:text-sm text-red-500">
-          {/* {"\u00A0"} */}
+          {"\u00A0"}{" "}
           {errors[name]?.message?.toString() || " This field is required"}
         </Typography>
       )}
