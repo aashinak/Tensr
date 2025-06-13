@@ -4,6 +4,7 @@ import React from "react";
 import SocialButtons from "../../shared/components/SocialButtons";
 import Link from "next/link";
 import SigninForm from "../components/SigninForm";
+import ForgotPassword from "../components/ForgotPassword";
 
 function SigninPage() {
   return (
@@ -17,11 +18,7 @@ function SigninPage() {
       {/* Signin Form */}
       <div className="w-11/12 flex flex-col justify-center mx-auto mt-10 ">
         <SigninForm />
-        <Link href={"/signup"}>
-          <Typography className="text-xs text-center md:text-sm text-[#9a9a9a] mt-4">
-            Forgot Password?
-          </Typography>
-        </Link>
+        <ForgotPassword/>
       </div>
 
       {/* Seperator */}
