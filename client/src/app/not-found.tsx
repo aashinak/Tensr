@@ -7,8 +7,8 @@ function notfound() {
       <div className="flex gap-4 justify-center items-center">
         <Typography variant="heading" className="text-[#808080]">
           404
-              </Typography>
-              {/*seperator */}
+        </Typography>
+        {/*seperator */}
         <div className="border-l border-[#808080] h-6"></div>
         <Typography variant="heading" className="text-[#808080]">
           Page Not Found
