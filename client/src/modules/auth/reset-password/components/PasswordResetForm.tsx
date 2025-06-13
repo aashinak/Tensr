@@ -31,8 +31,11 @@ function PasswordResetForm(): React.JSX.Element {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-3 md:gap-5 w-3/4 md:w-1/3"
+      className="flex flex-col gap-3 md:gap-5 w-3/4 md:w-1/3 "
     >
+      <Typography variant="heading" className="text-center text-xl mb-10 md:text-3xl font-semibold">
+        Reset Your Password
+      </Typography>
       <InputBox
         className="col-span-2"
         required
