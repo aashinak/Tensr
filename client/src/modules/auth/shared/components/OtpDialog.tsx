@@ -48,7 +48,6 @@ function OtpDialog({ setIsOpen, isOpen }: OtpDialogProps) {
 
   return (
     <Dialog
-      closeButton
       dialogDescription="An email with the OTP has been sent to your email address."
       isOpen={isOpen}
       setIsOpen={setIsOpen}
