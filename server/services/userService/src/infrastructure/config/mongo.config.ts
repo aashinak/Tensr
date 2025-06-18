@@ -17,4 +17,24 @@ async function connectMongoDb(): Promise<void> {
   }
 }
 
+async function disconnectMongoDb(): Promise<void> {
+  try {
+    await mongoose.disconnect();
+    logger.warn("MongoDb connection closed");
+  } catch (error) {
+    logger.error("Error while disconnecting MongoDB ::: ", error);
+  }
+}
+
+function shutdown(signal: string) {
+  return async () => {
+    logger.warn(`Received ${signal}. Closing MongoDB connection...`);
+    await disconnectMongoDb();
+    process.exit(0);
+  };
+}
+
+process.on("SIGINT", shutdown("SIGINT"));
+process.on("SIGTERM", shutdown("SIGTERM"));
+
 export default connectMongoDb;
