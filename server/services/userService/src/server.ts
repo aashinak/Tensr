@@ -1,7 +1,7 @@
 import app from "./app";
-import { EnvConfig } from "./infrastructure/config/env";
-import { logger } from "./utils/logger";
-import connectMongoDb from "./infrastructure/config/mongo.config";
+import connectMongoDb from "./infrastructure/db/mongoDb/mongo.config";
+import { EnvConfig } from "./shared/config/env";
+import { logger } from "./shared/logger/logger";
 
 const PORT: number = Number(process.env.PORT) || 9000;
 
@@ -33,4 +33,3 @@ async function startServer() {
 }
 
 startServer();
-

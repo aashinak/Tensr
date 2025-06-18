@@ -3,9 +3,9 @@ import helmet from "helmet";
 import cors from "cors";
 import compression from "compression";
 import morgan from "morgan";
-import { morganStream } from "./utils/logger";
 import { Request, Response } from "express";
-import { EnvConfig } from "./infrastructure/config/env";
+import { EnvConfig } from "./shared/config/env";
+import { morganStream } from "./shared/logger/logger";
 
 // import routes from "./routes";
 
@@ -40,7 +40,7 @@ app.use(
   compression({
     filter: (req: Request, res: Response) => {
       // Don't compress authentication responses
-      if (req.path.startsWith("/api/auth")) {
+      if (req.path.startsWith("/api/v1/auth")) {
         return false;
       }
       return compression.filter(req, res);
@@ -49,7 +49,7 @@ app.use(
 );
 
 // Logging
-app.use(morgan("combined", { stream: morganStream }));
+app.use(morgan("common", { stream: morganStream }));
 
 // Routes
 app.get("/api/v1/ping", (_, res) => {

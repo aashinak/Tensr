@@ -1,0 +1,36 @@
+/userService
+├── /src
+│   ├── /domain
+│   │   ├── /entities           # Core models (User, Token, etc.)
+│   │   ├── /value-objects      # Email, Password, UUID, etc.
+│   │   └── /interfaces         # Contracts (e.g., IUserRepository)
+│
+│   ├── /application
+│   │   ├── /use-cases
+│   │   │   └── register-user.ts
+│   │   └── /services           # Domain logic not tied to HTTP
+│
+│   ├── /infrastructure
+│   │   ├── /db                 # Mongoose config/models
+│   │   ├── /repositories       # IUserRepository -> MongoUserRepository
+│   │   ├── /external           # EmailService, Redis clients
+│   │   └── /middlewares        # Express middlewares (auth, error handler)
+│
+│   ├── /presentation
+│   │   ├── /controllers        # Handle HTTP and invoke use cases
+│   │   └── /routes             # Express router
+│
+│   ├── /shared
+│   │   ├── /config             # Env + config loader
+│   │   ├── /logger             # Winston or Pino wrapper
+│   │   └── /utils              # Generic helpers (hash, validate, etc.)
+│
+│   └── index.ts               # Bootstraps the app
+│
+├── /tests
+│   ├── /unit
+│   └── /integration
+├── .env
+├── Dockerfile
+├── tsconfig.json
+└── package.json

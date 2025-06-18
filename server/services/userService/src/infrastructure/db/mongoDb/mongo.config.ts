@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import { logger } from "../../utils/logger";
-import { EnvConfig } from "./env";
+import { EnvConfig } from "../../../shared/config/env";
+import { logger } from "../../../shared/logger/logger";
 
 async function connectMongoDb(): Promise<void> {
   try {

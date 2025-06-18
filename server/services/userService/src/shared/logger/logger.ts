@@ -1,7 +1,7 @@
 import winston from "winston";
 import chalk from "chalk";
 import DailyRotateFile from "winston-daily-rotate-file";
-import { EnvConfig } from "../infrastructure/config/env";
+import { EnvConfig } from "../config/env";
 
 // Define log format with colors for level and message
 const logFormat = winston.format.printf(({ level, message, timestamp }) => {
@@ -12,8 +12,7 @@ const logFormat = winston.format.printf(({ level, message, timestamp }) => {
     debug: chalk.magenta,
   };
 
-  
-  const colorize = colorMap[level] || chalk.white; 
+  const colorize = colorMap[level] || chalk.white;
   return `${chalk.bold(timestamp)} ${colorize(level.toUpperCase())}: ${colorize(
     message as string
   )}`;
@@ -46,5 +45,3 @@ const morganStream = {
 
 // Export utilities
 export { logger, morganStream };
-
-
