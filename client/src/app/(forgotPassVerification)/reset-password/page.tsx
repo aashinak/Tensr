@@ -4,7 +4,6 @@ interface PageProps {
   searchParams: {
     token?: string;
     email?: string;
-    // [key: string]: string | string[] | undefined;
   };
 }
 
