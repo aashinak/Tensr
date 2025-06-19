@@ -19,11 +19,20 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   helmet({
     contentSecurityPolicy: {
+      useDefaults: true,
       directives: {
-        defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "trusted-cdn.com"],
+        "default-src": ["'self'"],
+        "script-src": ["'self'", "cdnjs.cloudflare.com"],
+        "style-src": ["'self'", "fonts.googleapis.com"],
+        "font-src": ["'self'", "fonts.gstatic.com"],
+        "img-src": ["'self'", "data:"],
+        "connect-src": ["'self'"],
+        "frame-ancestors": ["'none'"],
       },
     },
+    frameguard: { action: "deny" },
+    referrerPolicy: { policy: "no-referrer" },
+    hidePoweredBy: true,
   })
 );
 
