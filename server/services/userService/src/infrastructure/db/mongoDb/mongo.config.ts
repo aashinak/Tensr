@@ -6,10 +6,14 @@ async function connectMongoDb(): Promise<void> {
   try {
     logger.info("Connecting to MongoDB...");
     const connectedInstance = await mongoose.connect(
-      EnvConfig.MONGODB_URL as string
+      EnvConfig.MONGODB_URL as string,
+      {
+        dbName: EnvConfig.DB_NAME,
+        maxPoolSize: Number(EnvConfig.DB_MAX_POOL_SIZE),
+      }
     );
     logger.info(
-      `MongoDB connected ::: DB HOST ::: ${connectedInstance.connection.host}`
+      `MongoDB connected :: Host: ${connectedInstance.connection.host} :: Database: ${connectedInstance.connection.db?.databaseName}`
     );
   } catch (error) {
     logger.error("Error while connecting to MongoDB ::: ", error);
