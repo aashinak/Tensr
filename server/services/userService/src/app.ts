@@ -62,7 +62,7 @@ app.use(morgan("common", { stream: morganStream }));
 
 // Routes
 app.get("/api/v1/ping", (_, res) => {
-  res.send("Pong!");
+  res.json({message: "Pong!!!!"});
 });
 
 export default app;
